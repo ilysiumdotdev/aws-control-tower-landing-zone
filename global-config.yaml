@@ -149,7 +149,7 @@ controlTower:
           - Workloads/Sandbox
           - Workloads/Dev
           - Workloads/Staging
-          - Workloads/Production
+          - Workloads/Prod
     # # BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK
     # #   - Checks if a backup plan has a backup rule that satisfies the required frequency and retention period
     # - identifier: dagreqi0i3fitenunuuo4q64t
