@@ -8,7 +8,7 @@
 
 homeRegion: "{{ HomeRegion }}"
 # Add a region based on your requirements
-enabledRegions: [{ { EnabledRegions } }]
+enabledRegions: [{{ EnabledRegions }}]
 managementAccountAccessRole: AWSControlTowerExecution # Cross-account role for LZA resource orchestration
 
 # Global Tags For Supported Resources
