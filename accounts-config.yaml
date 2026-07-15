@@ -1,0 +1,47 @@
+###############################################################################################################
+# For additional configurable services, features, and property descriptions,                                  #
+# please review the AccountConfig class reference in our TypeDoc:                                             #
+# https://awslabs.github.io/landing-zone-accelerator-on-aws/latest/user-guide/config/#account-configuration   #
+###############################################################################################################
+
+mandatoryAccounts:
+  # We recommend you do not change mandatory account names. These are used within Landing Zone Accelerator to reference the accounts from other config files.
+  # The "name" value does not currently support spaces
+  # The "name" value DOES NOT need to match the account name
+  - name: Management
+    description: >-
+      The management (primary) account. Do not change the name field for this
+      mandatory account. Note, the account name key does not need to match the
+      AWS account name.
+    email: management.aws@ilysium.io
+    organizationalUnit: Root
+  - name: LogArchive
+    description: >-
+      The log archive account. Do not change the name field for this mandatory
+      account. Note, the account name key does not need to match the AWS account
+      name.
+    email: log-archive.aws@ilysium.io
+    organizationalUnit: Security
+  - name: Audit
+    description: >-
+      The security audit account (also referred to as the audit account). Do not
+      change the name field for this mandatory account. Note, the account name
+      key does not need to match the AWS account name.
+    email: audit.aws@ilysium.io
+    organizationalUnit: Security
+workloadAccounts:
+  # The "name" will be used to set the AWS Account name
+  # The "name" value does not currently support spaces
+  # The "name" value DOES NOT need to match the account name
+  - name: SharedServices
+    description: The Shared Services account
+    email: shared-services.aws@ilysium.io
+    organizationalUnit: Infrastructure
+  - name: Network
+    description: The Network account
+    email: network.aws@ilysium.io
+    organizationalUnit: Infrastructure
+  - name: Perimeter
+    description: The Perimeter account
+    email: perimeter.aws@ilysium.io
+    organizationalUnit: Infrastructure
