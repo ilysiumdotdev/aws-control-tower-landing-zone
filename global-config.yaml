@@ -8,7 +8,7 @@
 
 homeRegion: "{{ HomeRegion }}"
 # Add a region based on your requirements
-enabledRegions: [ {{ EnabledRegions }} ]
+enabledRegions: [{ { EnabledRegions } }]
 managementAccountAccessRole: AWSControlTowerExecution # Cross-account role for LZA resource orchestration
 
 # Global Tags For Supported Resources
@@ -56,9 +56,9 @@ controlTower:
     #       - Infrastructure
     #       - Workloads
     #       - Workloads/Sandbox
-    #       - Workloads/Development
+    #       - Workloads/Dev
     #       - Workloads/Staging
-    #       - Workloads/Production
+    #       - Workloads/Prod
     # # CONFIG.LOGS.DT.1
     # #   - Checks if Amazon CloudWatch Log Groups are encrypted with any AWS KMS key or a specified AWS KMS key Id
     # - identifier: 497wrm2xnk1wxlf4obrdo7mej
@@ -69,9 +69,9 @@ controlTower:
     #       - Infrastructure
     #       - Workloads
     #       - Workloads/Sandbox
-    #       - Workloads/Development
+    #       - Workloads/Dev
     #       - Workloads/Staging
-    #       - Workloads/Production
+    #       - Workloads/Prod
     # # CONFIG.IAM.DT.6
     # #   - Checks whether IAM groups have at least one IAM user
     - identifier: 3jw8po9x95lr2nob65iaqhqir
@@ -82,9 +82,9 @@ controlTower:
           - Infrastructure
           - Workloads
           - Workloads/Sandbox
-          - Workloads/Development
+          - Workloads/Dev
           - Workloads/Staging
-          - Workloads/Production
+          - Workloads/Prod
     # # CONFIG.IAM.DT.5
     # #   - Checks if the inline policy feature is not in use
     # - identifier: bi738zni6ovf9d6dagobqtk6g
@@ -95,9 +95,9 @@ controlTower:
     #       - Infrastructure
     #       - Workloads
     #       - Workloads/Sandbox
-    #       - Workloads/Development
+    #       - Workloads/Dev
     #       - Workloads/Staging
-    #       - Workloads/Production
+    #       - Workloads/Prod
     # # CONFIG.EC2.DT.17
     # #.  - Checks if internet gateways are attached to an authorized virtual private cloud (Amazon VPC)
     - identifier: 1d908j9c0qtyr5vq7mora1ht2
@@ -108,9 +108,9 @@ controlTower:
           - Infrastructure
           - Workloads
           - Workloads/Sandbox
-          - Workloads/Development
+          - Workloads/Dev
           - Workloads/Staging
-          - Workloads/Production
+          - Workloads/Prod
     # # AWS-GR_NO_UNRESTRICTED_ROUTE_TO_IGW
     # #   - Detect whether public routes exist in the route table for an Internet Gateway (IGW)
     - identifier: b8pjfqosgkgknznstduvel4rh
@@ -121,9 +121,9 @@ controlTower:
           - Infrastructure
           - Workloads
           - Workloads/Sandbox
-          - Workloads/Development
+          - Workloads/Dev
           - Workloads/Staging
-          - Workloads/Production
+          - Workloads/Prod
     # # CONFIG.SAGEMAKER.DT.3
     # #   - Checks if an AWS Key Management Service (AWS KMS) key is configured for an Amazon SageMaker notebook instance
     # - identifier: 3b7ib9mi87kcw90atgx2nboax
@@ -134,9 +134,9 @@ controlTower:
     #       - Infrastructure
     #       - Workloads
     #       - Workloads/Sandbox
-    #       - Workloads/Development
+    #       - Workloads/Dev
     #       - Workloads/Staging
-    #       - Workloads/Production
+    #       - Workloads/Prod
     # # CONFIG.SECURITYHUB.DT.1
     # #   - Checks if AWS Security Hub is enabled for an AWS Account
     - identifier: 1klk5z4sby5l0cfx65dmq2dsk
@@ -147,7 +147,7 @@ controlTower:
           - Infrastructure
           - Workloads
           - Workloads/Sandbox
-          - Workloads/Development
+          - Workloads/Dev
           - Workloads/Staging
           - Workloads/Production
     # # BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK
@@ -160,9 +160,9 @@ controlTower:
     #       - Infrastructure
     #       - Workloads
     #       - Workloads/Sandbox
-    #       - Workloads/Development
+    #       - Workloads/Dev
     #       - Workloads/Staging
-    #       - Workloads/Production
+    #       - Workloads/Prod
     # # BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED
     # #   - Checks if a backup vault has an attached resource-based policy which prevents deletion of recovery points
     - identifier: d1wltz1jx8c4aok5062g4kzz3
@@ -173,9 +173,9 @@ controlTower:
           - Infrastructure
           - Workloads
           - Workloads/Sandbox
-          - Workloads/Development
+          - Workloads/Dev
           - Workloads/Staging
-          - Workloads/Production
+          - Workloads/Prod
     # # CONFIG.EC2.DT.10
     # #   - Checks if Amazon Elastic Compute Cloud (Amazon EC2) instances are protected by a backup plan
     # - identifier: aqh482zxh1libhd8e5pff5r1w
@@ -186,9 +186,9 @@ controlTower:
     #       - Infrastructure
     #       - Workloads
     #       - Workloads/Sandbox
-    #       - Workloads/Development
+    #       - Workloads/Dev
     #       - Workloads/Staging
-    #       - Workloads/Production
+    #       - Workloads/Prod
 
 # AWS IAM Central Root Management
 centralRootUserManagement:
@@ -220,9 +220,9 @@ backup:
       deploymentTargets:
         organizationalUnits:
           - Infrastructure
-          - Workloads/Development
+          - Workloads/Dev
           - Workloads/Staging
-          - Workloads/Production
+          - Workloads/Prod
 
 # Logging Configurations
 logging:
