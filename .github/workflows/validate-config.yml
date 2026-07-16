@@ -1,0 +1,24 @@
+name: Validate Landing Zone Config
+
+on:
+    pull_request:
+        paths-ignore:
+            - "docs/**"
+            - "*.md"
+
+jobs:
+    validate:
+        runs-on: ubuntu-latest
+
+        container:
+            image: public.ecr.aws/aws-gcr-solutions/lza-validator:v1.15.0
+            options: --entrypoint ""
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+            - name: Validate LZA Config
+              run: |
+                  cd /landing-zone-accelerator-on-aws/source
+                  yarn validate-config $GITHUB_WORKSPACE
