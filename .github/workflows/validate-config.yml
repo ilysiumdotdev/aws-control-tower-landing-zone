@@ -18,6 +18,10 @@ jobs:
             - name: Checkout Code
               uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
+            - name: Pull LZA Source
+              run: |
+                  git clone https://github.com/awslabs/landing-zone-accelerator-on-aws.git
+
             - name: Validate LZA Config
               run: |
                   cd /landing-zone-accelerator-on-aws/source
