@@ -10,10 +10,6 @@ jobs:
     validate:
         runs-on: ubuntu-latest
 
-        container:
-            image: public.ecr.aws/aws-gcr-solutions/lza-validator:v1.15.0
-            options: --entrypoint ""
-
         steps:
             - name: Checkout Code
               uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
