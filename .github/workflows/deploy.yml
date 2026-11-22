@@ -1,0 +1,50 @@
+name: Deploy Landing Zone Config
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - aws/**
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    environment: landing-zone
+    runs-on: ubuntu-latest
+    container:
+      image: amazon/aws-cli:2.42.1@sha256:b0102d2269f87d8531d931c1a59e248101ace586886e6c077058d94c1c37b846
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Authenticate to AWS
+        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ vars.AWS_LZA_DEPLOY_ROLE }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Upload Config
+        env:
+          AWS_ACCELERATOR_CONFIG_BUCKET: ${{ vars.AWS_ACCELERATOR_CONFIG_BUCKET }}
+        shell: bash
+        run: |
+          yum install -y zip
+
+          archive_path="$GITHUB_WORKSPACE/aws-accelerator-config.zip"
+          config_path="zipped/aws-accelerator-config.zip"
+          cd $GITHUB_WORKSPACE/aws
+          zip -r $archive_path .
+
+          aws s3 cp $archive_path s3://$AWS_ACCELERATOR_CONFIG_BUCKET/$config_path
+
+      - name: Trigger Pipeline
+        env:
+          AWS_ACCELERATOR_CODEPIPELINE: ${{ vars.AWS_ACCELERATOR_CODEPIPELINE }}
+        shell: bash
+        run: |
+          aws codepipeline start-pipeline-execution --name $AWS_ACCELERATOR_CODEPIPELINE
