@@ -24,18 +24,18 @@ globalReplacements:
   # AWS Budgets Notification Emails
   - key: BudgetsEmail
     type: String
-    value: cloudops@ilysium.io
+    value: platform@ilysium.io
 
   # SNS email notification configuration
   - key: SecurityHigh
     type: String
-    value: cloudsec@ilysium.io
+    value: security@ilysium.io
   - key: SecurityMedium
     type: String
-    value: cloudsec@ilysium.io
+    value: security@ilysium.io
   - key: SecurityLow
     type: String
-    value: cloudsec@ilysium.io
+    value: security@ilysium.io
 
   # Networking
   # - key: TransitGatewayASN
@@ -90,19 +90,19 @@ globalReplacements:
   ## Regional Pool
   - key: HomeRegionRegionalCidr
     type: String
-    value: "10.0.0.0/12"
+    value: "10.32.0.0/12"
   ## Dev VPCs Pool
   - key: HomeRegionDevWorkloadsCidr
     type: String
-    value: "10.4.0.0/14"
+    value: "10.44.0.0/16"
   ## Staging VPCs Pool
   - key: HomeRegionStagingWorkloadsCidr
     type: String
-    value: "10.8.0.0/14"
+    value: "10.40.0.0/16"
   ## Prod VPCs Pool
   - key: HomeRegionProdWorkloadsCidr
     type: String
-    value: "10.12.0.0/14"
+    value: "10.36.0.0/16"
 
   #############################################
   # HUB & SPOKE VPC DEPLOYMENT MODEL ONLY!!!! #
@@ -110,49 +110,35 @@ globalReplacements:
   ## Dev Workloads VPCs
   - key: HomeRegionDevWorkloadsVpcMaskLength
     type: Number
-    value: 22
+    value: 24
   - key: HomeRegionDevWorkloadsAppSubnetMaskLength
     type: Number
-    value: 24
+    value: 26
   - key: HomeRegionDevWorkloadsDataSubnetMaskLength
     type: Number
-    value: 26
+    value: 27
 
   ## Staging Workloads VPCs
   - key: HomeRegionStagingWorkloadsVpcMaskLength
     type: Number
-    value: 22
+    value: 24
   - key: HomeRegionStagingWorkloadsAppSubnetMaskLength
     type: Number
-    value: 24
+    value: 26
   - key: HomeRegionStagingWorkloadsDataSubnetMaskLength
     type: Number
-    value: 26
+    value: 27
 
   ## Prod Workloads VPCs
   - key: HomeRegionProdWorkloadsVpcMaskLength
     type: Number
-    value: 22
+    value: 24
   - key: HomeRegionProdWorkloadsAppSubnetMaskLength
     type: Number
-    value: 24
+    value: 26
   - key: HomeRegionProdWorkloadsDataSubnetMaskLength
     type: Number
-    value: 26
-
-  ########################################
-  # SHARED VPC DEPLOYMENT MODEL ONLY!!!! #
-  ########################################
-  ## SharedVpcCidrAssignments
-  # - key: HomeRegionSharedDevVpcMaskLength
-  #   type: Number
-  #   value: 16
-  # - key: HomeRegionSharedStagingVpcMaskLength
-  #   type: Number
-  #   value: 16
-  # - key: HomeRegionSharedProdVpcMaskLength
-  #   type: Number
-  #   value: 16
+    value: 27
 
   #############################################
   # Used by BOTH Networking Deployment Models #
@@ -160,20 +146,20 @@ globalReplacements:
   ## Ingress VPC
   - key: HomeRegionIngressCidr
     type: String
-    value: "10.0.0.0/20"
+    value: "10.32.0.0/24"
   - key: HomeRegionIngressVpcMaskLength
     type: Number
-    value: 20
+    value: 24
   - key: HomeRegionIngressFwSubnetMaskLength
     type: Number
     value: 27
   - key: HomeRegionIngressPublicSubnetMaskLength
     type: Number
-    value: 22
+    value: 26
   ## Egress VPC
   - key: HomeRegionEgressCidr
     type: String
-    value: "10.0.16.0/24"
+    value: "10.32.16.0/24"
   - key: HomeRegionEgressVpcMaskLength
     type: Number
     value: 24
@@ -186,14 +172,23 @@ globalReplacements:
   ## SharedServices VPC
   - key: HomeRegionSharedServicesCidr
     type: String
-    value: "10.0.24.0/21"
+    value: "10.32.24.0/22"
   - key: HomeRegionSharedServicesVpcMaskLength
     type: Number
-    value: 21
+    value: 22
+  - key: HomeRegionSharedServicesWebSubnetMaskLength
+    type: Number
+    value: 27
+  - key: HomeRegionSharedServicesAppSubnetMaskLength
+    type: Number
+    value: 26
+  - key: HomeRegionSharedServicesDataSubnetMaskLength
+    type: Number
+    value: 27
   ## Inspection VPC
   - key: HomeRegionInspectionCidr
     type: String
-    value: "10.0.17.0/24"
+    value: "10.32.18.0/24"
   - key: HomeRegionInspectionVpcMaskLength
     type: Number
     value: 24
@@ -203,20 +198,11 @@ globalReplacements:
   ## Endpoints VPC
   - key: HomeRegionEndpointsCidr
     type: String
-    value: "10.0.20.0/22"
+    value: "10.32.20.0/24"
   - key: HomeRegionIngressEndpointsVpcMaskLength
     type: Number
-    value: 22
+    value: 24
   - key: HomeRegionIngressEndpointsSubnetMaskLength
     type: Number
-    value: 24
-  ## SharedServices
-  - key: HomeRegionSharedServicesWebSubnetMaskLength
-    type: Number
-    value: 25
-  - key: HomeRegionSharedServicesAppSubnetMaskLength
-    type: Number
-    value: 24
-  - key: HomeRegionSharedServicesDataSubnetMaskLength
-    type: Number
     value: 26
+

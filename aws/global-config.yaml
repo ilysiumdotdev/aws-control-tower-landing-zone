@@ -8,7 +8,7 @@
 
 homeRegion: "{{ HomeRegion }}"
 # Add a region based on your requirements
-enabledRegions: [{{ EnabledRegions }}]
+enabledRegions: [ {{ EnabledRegions }} ]
 managementAccountAccessRole: AWSControlTowerExecution # Cross-account role for LZA resource orchestration
 
 # Global Tags For Supported Resources
@@ -43,6 +43,7 @@ controlTower:
       organizationTrail: true # Enables organization-wide AWS CloudTrail
     security:
       enableIdentityCenterAccess: true # Enables AWS IAM Identity Center for centralized access management
+
   # Control Tower Controls Configurations
   # See the AWS documentation for the identifier list:  https://docs.aws.amazon.com/controltower/latest/controlreference/all-global-identifiers.html
   controls:
@@ -213,6 +214,25 @@ snsTopics:
       emailAddresses:
         - "{{ SecurityLow }}"
 
+# SQS Configuration
+sqs:
+  encryption:
+    useCMK: false
+
+# Lambda Configuration
+lambda:
+  encryption:
+    useCMK: false
+
+# S3 Configuration
+s3:
+  encryption:
+    createCMK: true
+    deploymentTargets:
+      organizationalUnits:
+        - Security
+        - Workloads/Prod
+
 # AWS Backup Vault Configuration
 backup:
   vaults:
@@ -249,7 +269,10 @@ logging:
     attachPolicyToIamRoles:
       - EC2-Default-SSM-Role
   cloudwatchLogs:
+    enable: true
     dynamicPartitioning: dynamic-partitioning/log-filters.json # Dynamic Filtering for CloudWatch Logs
+    encryption:
+      useCMK: false
   # Access Log Bucket Configurations
   accessLogBucket:
     lifecycleRules:
@@ -305,6 +328,7 @@ reports:
         abortIncompleteMultipartUpload: 7
         expiration: 60
         noncurrentVersionExpiration: 7
+
   # AWS Budgets Configurations
   budgets:
     - deploymentTargets:

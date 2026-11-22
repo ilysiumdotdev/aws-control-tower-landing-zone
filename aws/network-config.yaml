@@ -1021,7 +1021,6 @@ vpcTemplates:
         - service: dynamodb
     useCentralEndpoints: true
 
-
 # VPC Flow Logs
 #   - Logs sent to CloudWatch Logs which are then forwarded to the log account's central logging bucket
 #   - Dynamic filter created to use prefix for flow logs
