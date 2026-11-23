@@ -32,7 +32,7 @@ resource "aws_s3_object" "lza_installer_template" {
 resource "aws_cloudformation_stack" "lza_installer" {
   name          = local.lza_installer_stack_name
   parameters    = local.lza_installer_parameters
-  template_url  = "https://${aws_s3_bucket.cfn_templates.bucket_regional_domain_name}/${aws_s3_object.lza_installer_template.key}" 
+  template_url  = "https://${aws_s3_bucket.lza_installer_templates.bucket_regional_domain_name}/${aws_s3_object.lza_installer_template.key}" 
 
   disable_rollback = false
   capabilities = [
