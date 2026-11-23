@@ -1,5 +1,6 @@
 locals {
-  accelerator_installer_stack_template_file = "${path.module}/lib/AWSAccelerator-InstallerStack.template.json"
+  accelerator_installer_stack_template_name = "AWSAccelerator-InstallerStack.template" 
+  accelerator_installer_stack_template_file = "${path.module}/lib/AWSAccelerator-InstallerStack.template"
 }
 
 locals {
@@ -22,5 +23,4 @@ locals {
     RepositoryBranchName               = var.accelerator_config.repository_branch_name
     UseExistingConfigRepo              = var.accelerator_config.use_existing_config_repo
   }
-  lza_installer_stack_template = file(local.accelerator_installer_stack_template_file)
 }
