@@ -23,7 +23,7 @@ Installs AWS Landing Zone Accelerator pipeline resources in the management accou
 to deploy landing zone components and controls.
 */
 resource "aws_s3_object" "lza_installer_template" {
-  bucket  = aws_s3_bucket.cfn_templates.id
+  bucket  = aws_s3_bucket.lza_installer_templates.id
   key     = local.accelerator_installer_stack_template_name
   source  = local.accelerator_installer_stack_template_file
   etag    = filemd5(local.accelerator_installer_stack_template_file)
