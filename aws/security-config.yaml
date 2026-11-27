@@ -701,15 +701,15 @@ accessAnalyzer:
 
 # AWS IAM Password Policy Requirements
 iamPasswordPolicy:
-  allowUsersToChangePassword: true # Enables users to update their own passwords
-  hardExpiry: false # Allows grace period at password expiration
-  requireUppercaseCharacters: true # Must include uppercase letters (A-Z)
-  requireLowercaseCharacters: true # Must include lowercase letters (a-z)
-  requireSymbols: true # Must include special characters (!@#$%^&*)
-  requireNumbers: true # Must include numbers (0-9)
-  minimumPasswordLength: 14 # Mandatory character minimum length
-  passwordReusePrevention: 24 # Prevents reuse of last passwords
-  maxPasswordAge: 90 # Mandates password change days
+  allowUsersToChangePassword: true
+  hardExpiry: false
+  requireUppercaseCharacters: true
+  requireLowercaseCharacters: true
+  requireSymbols: true
+  requireNumbers: true
+  minimumPasswordLength: 14
+  passwordReusePrevention: 24
+  maxPasswordAge: 90
 
 cloudWatch:
   metricSets: []
