@@ -57,7 +57,7 @@ resource "aws_s3_object" "lza_source_code" {
 
 resource "aws_s3_object" "lza_installer_template" {
   bucket = aws_s3_bucket.lza_installer_templates.id
-  key    = "AWSAccelerator-InstallerStack-${var.lza_version}.template.yaml"
+  key    = "AWSAccelerator-InstallerStack-${var.lza_version}.template.json"
   source = var.lza_installer_template_file
   etag   = filemd5(var.lza_installer_template_file)
 }
