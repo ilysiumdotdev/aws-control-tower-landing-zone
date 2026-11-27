@@ -44,9 +44,55 @@ controlTower:
   # Control Tower Controls Configurations
   # See the AWS documentation for the identifier list:  https://docs.aws.amazon.com/controltower/latest/controlreference/all-global-identifiers.html
   controls:
+    # # AWS-GR_AUDIT_BUCKET_DELETION_PROHIBITED
+    # #  - Disallow deletion of log archive
+    - identifier: 3cerasw3dhjqcwatjqo2gk3wj
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+    # # AWS-GR_CLOUDTRAIL_CHANGE_PROHIBITED
+    # #  - Disallow configuration changes to AWS CloudTrail
+    - identifier: 1iskvg0qcxofs1t78ittjbnr5
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
     # # AWS-GR_NO_UNRESTRICTED_ROUTE_TO_IGW
     # #   - Detect whether public routes exist in the route table for an Internet Gateway (IGW)
     - identifier: b8pjfqosgkgknznstduvel4rh
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # AWS-GR_RESTRICT_ROOT_USER
+    # #  - Disallow actions as a root user
+    - identifier: 5kvme4m5d2b4d7if2fs5yg2ui
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # AWS-GR_RESTRICT_ROOT_USER_ACCESS_KEYS
+    # #  - Disallow creation of access keys for the root user
+    - identifier: 8ui9y3oace2513xarz8aqojl7
       enable: true
       deploymentTargets:
         organizationalUnits:
@@ -165,6 +211,173 @@ controlTower:
     # #   - Checks if AWS Security Hub is enabled for an AWS Account
     - identifier: 1klk5z4sby5l0cfx65dmq2dsk
       enable: false
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.EC2.PV.3
+    # #  - Require that an Amazon EBS snapshot cannot be publicly restorable
+    - identifier: chlzfpsllhs3knp1ixr773wa6
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.EC2.PV.5
+    # #  - Disallow the use of Amazon EC2 VM import and export
+    - identifier: 53u8m2z255npa7rldrk77vm5z
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.EC2.PV.7
+    # #  - Disallow all public sharing of Amazon EBS snapshots
+    - identifier: ek6wc2bmgzmho1kk6bn236mqt
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.EC2.PV.8
+    # #  - Disallow inbound and outbound Internet connects to your VPCs through an Internet Gateway (IGW) or egress-only Internet gateway (EIGW)
+    - identifier: acfp8qjz7eggnursu5pfw7q2w
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.EC2.PV.9
+    # #  - Disallow access to the EC2 serial console for all EC2 instances
+    - identifier: 4omjmqewmrxe3m827ttnlkft0
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.EC2.PV.11
+    # #  - Disallow public sharing of Amazon Machine Images (AMIs)
+    - identifier: clmlaa2in1wkntwekh7uw2jyx
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.KMS.PV.7
+    # #  - Require that the organization's AWS Key Management Service resources are accessible only by IAM principals that belong to the organization, or by an AWS service
+    - identifier: eolw7feyvr8b4l2lfhp3bneou
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.LAMBDA.PV.1
+    # #  - Require an AWS Lambda function URL to use AWS IAM-based authentication
+    - identifier: 3qpnxfs5vtzd2v2ql2f2mu7tq
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.LAMBDA.PV.2
+    # #  - Require an AWS Lambda function or AWS Lambda function URL to be configured for access only to principals within your AWS account
+    - identifier: aksh80tizisat4i4ou8qg1hdy
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.S3.PV.4
+    # #  - Require that the organization's Amazon S3 resources are accessible only by IAM principals that belong to the organization or by an AWS service
+    - identifier: 7oo9e9bcs8ilm6ekoxu322yb3
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.S3.PV.5
+    # #  - Require encryption of data in transit for calls to Amazon S3 resources
+    - identifier: 7mo7a2h2ebsq71l8k6uzr96ou
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.SECRETSMANAGER.PV.1
+    # #  - Require that the organization's AWS Secrets Manager resources are accessible only by IAM principals that belong to the organization or by an AWS service
+    - identifier: dvhe47fxg5o6lryqrq9g6sxg4
+      enable: true
+      deploymentTargets:
+        organizationalUnits:
+          - Security
+          - Infrastructure
+          - Workloads
+          - Workloads/Sandbox
+          - Workloads/Dev
+          - Workloads/Staging
+          - Workloads/Prod
+    # # CT.SQS.PV.1
+    # #  - Require that the organization's Amazon SQS resources are accessible only by IAM principals that belong to the organization, or by an AWS service
+    - identifier: 54ih5t4iifupgyf22zo3kw45m
+      enable: true
       deploymentTargets:
         organizationalUnits:
           - Security
