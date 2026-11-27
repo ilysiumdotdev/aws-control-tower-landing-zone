@@ -6,7 +6,7 @@
 
 # Central Security Services Configurations
 centralSecurityServices:
-  delegatedAdminAccount: Audit # Enables security services management through delegated Audit account
+  delegatedAdminAccount: Audit
   # Amazon Elastic Block Store Encryption
   ebsDefaultVolumeEncryption:
     enable: false # Enables default encryption for EBS volumes using customer managed KMS keys
@@ -19,31 +19,34 @@ centralSecurityServices:
   scpRevertChangesConfig:
     enable: true # Enables SCPs integrity by reverting manual unauthorized changes
   snsSubscriptions: []
+  
   # Amazon Macie Configurations
   macie:
-    enable: false # Enables Macie to all accounts in the organization
-    excludeRegions: [] # List of AWS Region names to be excluded from configuring Macie
-    policyFindingsPublishingFrequency: FIFTEEN_MINUTES # Publish updated policy findings
-    publishSensitiveDataFindings: false # Enables publishing of sensitive data findings to Security Hub
-    publishPolicyFindings: true # Enables publishing of policy findings to Security Hub
+    enable: false
+    excludeRegions: [] 
+    policyFindingsPublishingFrequency: FIFTEEN_MINUTES
+    publishSensitiveDataFindings: false
+    publishPolicyFindings: true
+  
   # AWS GuardDuty Configurations
   guardduty:
-    enable: false # Enables GuardDuty to all accounts in the organization
-    excludeRegions: [] # List of AWS Region names to be excluded from configuring GuardDuty
+    enable: false
+    excludeRegions: [] 
     s3Protection:
-      enable: false # Enables S3 bucket monitoring
+      enable: false
       excludeRegions: []
     eksProtection:
-      enable: false # Enables EKS cluster monitoring
+      enable: false
     exportConfiguration:
-      enable: true # Enables findings export
-      destinationType: S3 # Exports findings to S3
-      exportFrequency: SIX_HOURS # Exports findings every 6 HOURS
+      enable: true
+      destinationType: S3
+      exportFrequency: SIX_HOURS
+  
   # AWS Security Hub Configurations
   securityHub:
-    enable: true # Enables Security Hub to all accounts in the organization
-    regionAggregation: true # Enables multi-region aggregation
-    excludeRegions: [] # List of AWS Region names to be excluded from configuring Security Hub
+    enable: false 
+    regionAggregation: true 
+    excludeRegions: []
     standards:
       #####################################################################################
       # Enable AWS Security Hub standards based upon a customer specific requirements     #
@@ -673,6 +676,7 @@ centralSecurityServices:
             filter:
               - value: "aws-accelerator"
                 comparison: "CONTAINS"
+  
   # AWS Systems Manager Settings
   ssmSettings:
     blockPublicDocumentSharing:
@@ -693,7 +697,7 @@ centralSecurityServices:
 
 # AWS IAM Access Analyzer Configurations
 accessAnalyzer:
-  enable: true # Enables IAM Access Analyzer in the organization
+  enable: false # Enables IAM Access Analyzer in the organization
 
 # AWS IAM Password Policy Requirements
 iamPasswordPolicy:
