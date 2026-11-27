@@ -77,7 +77,7 @@ resource "aws_cloudformation_stack" "lza_installer" {
     "RepositoryBucketName"            = aws_s3_bucket.lza_source_code.id
     "RepositoryBucketObject"          = aws_s3_object.lza_source_code.key
     "ConfigurationRepositoryLocation" = "s3"
-    "UseExistingConfigRepo"           = var.accelerator_config.use_existing_config_repo
+    "UseExistingConfigRepo"           = "No"
     "EnableApprovalStage"             = var.accelerator_config.enable_approval_stage
     "ApprovalStageNotifyEmailList"    = var.accelerator_config.approval_stage_notify_email_list
     "ManagementAccountEmail"          = var.accelerator_config.management_account_email

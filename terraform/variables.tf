@@ -18,12 +18,10 @@ variable "accelerator_config" {
     accelerator_prefix                = string
     approval_stage_notify_email_list  = string
     audit_account_email               = string
-    configuration_repository_location = string
     control_tower_enabled             = string
     enable_approval_stage             = string
     log_archive_account_email         = string
     management_account_email          = string
-    use_existing_config_repo          = string
   })
   description = "Configuration for the AWS Landing Zone Accelerator Installer stack."
 }
