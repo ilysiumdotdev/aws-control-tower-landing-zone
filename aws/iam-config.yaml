@@ -9,6 +9,7 @@ identityCenter:
   delegatedAdminAccount: SharedServices
 
 providers: []
+
 policySets:
   - deploymentTargets:
       organizationalUnits:
@@ -53,5 +54,6 @@ roleSets:
           customerManaged:
             - "{{ AcceleratorPrefix }}-Default-SSM-S3-Policy"
         boundaryPolicy: "{{ AcceleratorPrefix }}-End-User-Policy"
+
 groupSets: []
 userSets: []
